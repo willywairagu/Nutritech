@@ -31,17 +31,19 @@ void loop() {
   
 //  Measuring Point...
   digitalWrite(ledpin, HIGH);
+  delay(500); //slight delay
   int reading = analogRead(A0);
+//  Getting voltage and glucose readings
   float volt = (reading * (5.0/1023.0))*1000;
-//  delay(1000)
   long glucose_level = (8 * (pow(10, -5)) * (pow(volt, 2))) + 0.1873 * volt + 46.131; 
+  delay(1500);
 
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Voltage Reading: ");
   lcd.setCursor(0, 1);
   lcd.print(String(volt) + ": mV");
-  delay(1500);
+  delay(2000);
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Glucose Reading: ");
@@ -52,7 +54,8 @@ void loop() {
   Serial.println(String(volt) + ": mV");
   Serial.print("Glucose Level: ");
   Serial.println(String(glucose_level) + ": mg/dL");
-  
+  delay(2000);
+  digitalWrite(ledpin, LOW);
   delay(5000);
   
           //  digitalWrite(ledpin, LOW);
