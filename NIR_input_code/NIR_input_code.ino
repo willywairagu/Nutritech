@@ -18,7 +18,7 @@ void loop() {
   Serial.print("Raw Reading while LOW: ");
   Serial.println(volt);
   delay(3000);
-
+cd 
 //  Checking Voltage reading while NIR PIN is HIGH
   digitalWrite(ledpin, HIGH);
   delay(500); // Slight delay
